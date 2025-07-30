@@ -1,0 +1,119 @@
+/* Login.css */
+
+.login-container {
+  max-width: 400px;
+  margin: 4rem auto;
+  padding: 2rem 2.5rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+.login-welcome {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #007bff; /* azul profesional */
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+  margin-bottom: 1.8rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #222;
+}
+
+.login-error {
+  color: #d9534f;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  background: #f8d7da;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #f5c6cb;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  text-align: left;
+}
+
+label {
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: #444;
+}
+
+input[type="email"],
+input[type="password"] {
+  margin-top: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  font-size: 1rem;
+  border: 1.8px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button[type="submit"] {
+  margin-top: 1rem;
+  background-color: #007bff;
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background-color: #0056b3;
+  outline: none;
+}
+
+/* Responsive para móviles */
+@media (max-width: 480px) {
+  .login-container {
+    margin: 2rem 1rem;
+    padding: 1.8rem 1.5rem;
+  }
+
+  .login-welcome {
+    font-size: 1.5rem;
+  }
+
+  .login-container h2 {
+    font-size: 1.5rem;
+  }
+
+  label {
+    font-size: 0.95rem;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    font-size: 0.95rem;
+  }
+
+  button[type="submit"] {
+    font-size: 1rem;
+    padding: 0.65rem;
+  }
+}
