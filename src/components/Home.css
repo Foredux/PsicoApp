@@ -1,39 +1,44 @@
 .home-container {
   max-width: 700px;
-  margin: 20px auto;
-  padding: 0 15px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #e6f0ff; /* azul clarito */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
+  color: #222;
 }
 
-h2 {
+.home-container h2 {
   text-align: center;
-  margin-bottom: 20px;
-  color: #2c3e50;
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #343a40;
+  font-size: 1.8rem;
 }
 
 .input-busqueda {
   width: 100%;
   padding: 12px 15px;
-  border: 2px solid #2980b9;
-  border-radius: 6px;
   font-size: 1rem;
-  margin-bottom: 15px;
-  box-sizing: border-box;
+  border: 2px solid #ced4da;
+  border-radius: 6px;
   transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  margin-bottom: 20px;
 }
 
 .input-busqueda:focus {
   outline: none;
-  border-color: #3498db;
-  box-shadow: 0 0 6px #3498db;
+  border-color: #495057;
+  box-shadow: 0 0 6px #495057aa;
 }
 
 .mensaje {
-  text-align: center;
-  color: #e74c3c;
-  margin-bottom: 15px;
+  color: #d6336c; /* rojo suave para mensajes de error */
   font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .lista-pacientes {
@@ -43,33 +48,48 @@ h2 {
 }
 
 .paciente-item {
-  background: #ecf0f1;
-  border-radius: 8px;
+  background: white;
   padding: 15px 20px;
+  border-radius: 6px;
   margin-bottom: 15px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  font-size: 1rem;
-  color: #2c3e50;
-  line-height: 1.5;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.07);
+  transition: box-shadow 0.3s ease;
+  cursor: default;
 }
 
 .paciente-item:hover {
-  background: #d6eaf8;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.15);
 }
 
 .paciente-item strong {
-  color: #34495e;
+  color: #495057;
 }
 
-@media (max-width: 480px) {
+.paciente-item div {
+  line-height: 1.4;
+  font-size: 1rem;
+  color: #343a40;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
   .home-container {
-    max-width: 95%;
-    padding: 0 10px;
+    margin: 20px 10px;
+    padding: 15px;
+  }
+
+  .input-busqueda {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .home-container h2 {
+    font-size: 1.5rem;
   }
 
   .paciente-item {
     padding: 12px 15px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 }

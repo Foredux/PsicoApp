@@ -17,7 +17,7 @@ h2 {
 .mensaje {
   text-align: center;
   margin-bottom: 15px;
-  color: #d9534f; /* rojo para errores */
+  color: #d9534f;
   font-weight: 600;
 }
 
@@ -29,9 +29,8 @@ h2 {
   justify-content: space-between;
 }
 
-/* Cada label con input o textarea */
 .form-editar label {
-  flex: 1 1 45%; /* Ocupa cerca de la mitad en pantallas grandes */
+  flex: 1 1 45%;
   display: flex;
   flex-direction: column;
   font-weight: 600;

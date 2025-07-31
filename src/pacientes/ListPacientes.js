@@ -23,7 +23,7 @@ function ListaPacientes() {
 
   const handleDelete = async (id) => {
     const confirm = window.confirm(
-      "¿Estás seguro de que deseas borrar este paciente?"
+      "¿Estás seguro de que deseas borrar este cliente?"
     );
     if (!confirm) return;
 
@@ -31,7 +31,7 @@ function ListaPacientes() {
       await deleteDoc(doc(db, "pacientes", id));
       setPacientes(pacientes.filter((p) => p.id !== id));
     } catch (error) {
-      console.error("Error al borrar paciente:", error);
+      console.error("Error al borrar el cliente:", error);
     }
   };
 
@@ -42,15 +42,15 @@ function ListaPacientes() {
   return (
     <div className="lista-container">
       <div className="lista-header">
-        <h2>Pacientes Registrados</h2>
+        <h2>Clientes Registrados</h2>
         <button onClick={() => navigate("/crear")} className="btn-crear">
-          Crear Paciente
+          Crear Cliente
         </button>
       </div>
 
       <div className="tabla-pacientes">
         {pacientes.length === 0 ? (
-          <p>No hay pacientes registrados.</p>
+          <p>No hay clientes registrados.</p>
         ) : (
           <ul className="lista-pacientes">
             {pacientes.map((paciente) => (
@@ -75,13 +75,13 @@ function ListaPacientes() {
                     className="btn-editar"
                     onClick={() => handleEdit(paciente.id)}
                   >
-                    Editar
+                    Editar cliente
                   </button>
                   <button
                     className="btn-borrar"
                     onClick={() => handleDelete(paciente.id)}
                   >
-                    Borrar
+                    Borrar cliente
                   </button>
                 </div>
               </li>

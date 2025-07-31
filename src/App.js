@@ -11,9 +11,10 @@ import { auth } from "./firebaseConfig";
 import Navbar from "./components/NavBar";
 import Login from "./login/Login";
 import Home from "./components/Home";
-import ListPacientes from "./components/ListPacientes";
-import AddPacientes from "./components/AddPaciente";
-import EditarPaciente from "./components/EditarPaciente";
+import ListPacientes from "./pacientes/ListPacientes";
+import AddPacientes from "./pacientes/AddPaciente";
+import EditarPaciente from "./pacientes/EditarPaciente";
+import Calendario from "./components/Calendar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -27,7 +28,6 @@ function App() {
 
   return (
     <Router>
-      {/* Mostrar Navbar solo si el usuario está autenticado */}
       {user && <Navbar />}
 
       <Routes>
@@ -46,6 +46,10 @@ function App() {
         <Route
           path="/editar/:id"
           element={user ? <EditarPaciente /> : <Navigate to="/login" replace />}
+        />
+        <Route
+          path="/calendario"
+          element={user ? <Calendario /> : <Navigate to="/login" replace />}
         />
         <Route
           path="/login"

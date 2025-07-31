@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebaseConfig";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import "./Home.css";
 
 function Home() {
@@ -17,8 +17,6 @@ function Home() {
       }
 
       try {
-        // Traemos todos los pacientes (simple), para filtrar en frontend
-        // Para filtro en Firebase, necesitas un campo indexado y exacto (por ejemplo nombre)
         const q = query(
           collection(db, "pacientes"),
           where("nombre", ">=", busqueda),
@@ -26,25 +24,24 @@ function Home() {
         );
 
         const querySnapshot = await getDocs(q);
-
         const resultados = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
 
         if (resultados.length === 0) {
-          setMensaje("No se encontraron pacientes con ese nombre.");
+          setMensaje("No se encontraron cliente con ese nombre.");
         } else {
           setMensaje("");
         }
+
         setPacientesEncontrados(resultados);
       } catch (error) {
-        console.error("Error al buscar pacientes:", error);
-        setMensaje("Error buscando pacientes. Inténtalo de nuevo.");
+        console.error("Error al buscar cliente:", error);
+        setMensaje("Error buscando cliente. Inténtalo de nuevo.");
       }
     };
 
-    // Llamamos a buscar solo si busqueda tiene texto
     if (busqueda.trim().length > 0) {
       buscarPacientes();
     } else {
@@ -55,10 +52,10 @@ function Home() {
 
   return (
     <div className="home-container">
-      <h2>Buscar Paciente</h2>
+      <h2>Buscar Cliente</h2>
       <input
         type="text"
-        placeholder="Escribe el nombre del paciente..."
+        placeholder="Escribe el nombre del cliente..."
         value={busqueda}
         onChange={(e) => setBusqueda(e.target.value)}
         className="input-busqueda"
@@ -72,9 +69,8 @@ function Home() {
             <div>
               <strong>Nombre:</strong> {paciente.nombre} <br />
               <strong>Edad:</strong> {paciente.edad} <br />
-              <strong>Motivo de consulta:</strong> {paciente.motivoConsulta}{" "}
-              <br />
-              <strong>Fecha de registro:</strong>{" "}
+              <strong>Motivo:</strong> {paciente.motivoConsulta} <br />
+              <strong>Fecha:</strong>{" "}
               {paciente.fechaRegistro
                 ? new Date(
                     paciente.fechaRegistro.seconds * 1000
